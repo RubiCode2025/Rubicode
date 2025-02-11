@@ -1,4 +1,4 @@
-// تابع تغییر رنگ پس‌زمینه هدر (کد اصلی شما)
+// تابع تغییر رنگ پس‌زمینه هدر (در صورت نیاز)
 function toggleHeaderColor() {
     const headerBox = document.getElementById('headerBox');
     if (headerBox.style.backgroundColor === 'black') {
@@ -7,7 +7,6 @@ function toggleHeaderColor() {
         headerBox.style.backgroundColor = 'black';
     }
 }
-
 // تابع نمایش/مخفی کردن منوی ناوبری در موبایل
 function toggleMenu() {
     const navMenu = document.getElementById('navMenu');
