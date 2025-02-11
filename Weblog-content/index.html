@@ -2,22 +2,21 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
+    <!-- متا تگ viewport برای ریسپانسیو شدن -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طراحی صفحه با جزئیات بیشتر در باکس‌های سمت چپ</title>
 
-    <!-- فراخوانی فونت فارسی (نمونه) -->
+    <!-- فراخوانی فونت فارسی -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="Weblog-content.css">
 </head>
 <body>
-
 <header>
     <div class="logo">
-        <img src="../IMG/Asset%201@2x.png" alt="" class="class">
+        <img src="../IMG/Asset%201@2x.png" alt="لوگو" class="class">
     </div>
-
     <!-- دکمه همبرگری برای موبایل -->
     <button class="hamburger" onclick="toggleMenu()">☰</button>
-
     <!-- ناوبری اصلی -->
     <nav id="navMenu">
         <ul>
@@ -30,7 +29,6 @@
             <li><a href="../contact-with-us/index.html">تماس با ما</a></li>
         </ul>
     </nav>
-
     <!-- دکمه‌های ورود/ثبت نام -->
     <div class="buttons" id="menuButtons">
         <a href="../login-and-register/register/register.html">
@@ -43,12 +41,13 @@
 </header>
 
 <div class="container">
-    <!-- بخش محتوای اصلی (سمت چپ) -->
+    <!-- بخش محتوای اصلی -->
     <section class="main-content">
         <h1>عنوان هدر اصلی</h1>
         <!-- هدر مشکی بالای محتوای اصلی -->
         <div class="header-box" id="headerBox">
-            <img src="" alt="">
+            <!-- می‌توانید عنوان یا تصویر دلخواه را جایگذاری کنید -->
+            <h2>عنوان در هدر</h2>
         </div>
 
         <!-- باکس محتوا (اول) -->
@@ -63,7 +62,7 @@
                 این متن ریشه در نوشته‌هایی از قرن پانزدهم دارد و همواره ابزار مفیدی برای آزمودن متن در
                 صنعت چاپ و نشر به شمار می‌رود. امروز نیز برای شبیه‌سازی و پیش‌نمایش صفحات نرم‌افزارهای
                 مختلف مثل مایکروسافت ورد و فتوشاپ به کار می‌رود تا طرح کلی پیش از نهایی شدن به شکلی
-                واقع‌گرایانه‌ دیده شود.
+                واقع‌گرایانه دیده شود.
             </p>
         </div>
 
@@ -85,20 +84,17 @@
         </div>
     </section>
 
-    <!-- ستون کناری (سمت راست) -->
+    <!-- ستون وبلاگ مرتبط -->
     <aside class="sidebar">
         <h3>وبلاگ مرتبط:</h3>
-
         <div class="sidebar-card">
             <img src="../IMG/images.jpeg" alt="قابلیت‌های مهم هوش مصنوعی در صنعت چاپ">
             <p>قابلیت‌های مهم هوش مصنوعی در صنعت چاپ</p>
         </div>
-
         <div class="sidebar-card">
             <img src="../IMG/images.jpeg" alt="رمزارزهای محبوب و تاثیر آن‌ها">
             <p>رمزارزهای محبوب و تاثیر آن‌ها</p>
         </div>
-
         <div class="sidebar-card">
             <img src="../IMG/images.jpeg" alt="هوش مصنوعی چطور کار می‌کند">
             <p>هوش مصنوعی چطور کار می‌کند</p>
@@ -108,7 +104,7 @@
 
 <footer class="footer-section">
     <div class="footer-container">
-        <!-- ستون ۱ (راست‌ترین ستون): روبیکد -->
+        <!-- ستون روبیکد -->
         <div class="footer-col about-col">
             <h2>روبیکد</h2>
             <p>
@@ -117,8 +113,7 @@
                 سایت و اپلیکیشن و ابزار های هوش مصنوعی
             </p>
         </div>
-
-        <!-- ستون ۲: لینک های مفید -->
+        <!-- ستون لینک‌های مفید -->
         <div class="footer-col">
             <h3>لینک های مفید</h3>
             <ul>
@@ -127,8 +122,7 @@
                 <li><a href="../about-us/index.html">درباره ما</a></li>
             </ul>
         </div>
-
-        <!-- ستون ۳: لینک های سریع -->
+        <!-- ستون لینک‌های سریع -->
         <div class="footer-col">
             <h3>لینک های سریع</h3>
             <ul>
@@ -138,8 +132,7 @@
                 <li><a href="../Weblog/index.html">وبلاگ</a></li>
             </ul>
         </div>
-
-        <!-- ستون ۴ (چپ‌ترین ستون): شبکه‌های اجتماعی -->
+        <!-- ستون شبکه‌های اجتماعی -->
         <div class="footer-col social-col">
             <h3>شبکه‌های اجتماعی</h3>
             <ul>
@@ -164,9 +157,6 @@
     </div>
 </footer>
 
-
-
-<!-- اسکریپت جاوااسکریپت -->
 <script src="script.js"></script>
 </body>
 </html>
