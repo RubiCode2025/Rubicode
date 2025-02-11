@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>طراحی صفحه با جزئیات بیشتر در باکس‌های سمت چپ</title>
+
+    <!-- فراخوانی فونت فارسی (نمونه) -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="Weblog-content.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../IMG/Asset%201@2x.png" alt="" class="class">
+    </div>
+
+    <!-- دکمه همبرگری برای موبایل -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <!-- ناوبری اصلی -->
+    <nav id="navMenu">
+        <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../product/index.html">محصولات</a></li>
+            <li><a href="../Team/index.html">تیم</a></li>
+            <li><a href="../about-us/index.html">درباره ما</a></li>
+            <li><a href="../Weblog/index.html">وبلاگ</a></li>
+            <li><a href="../courses/index.html">دوره ها</a></li>
+            <li><a href="../contact-with-us/index.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+
+    <!-- دکمه‌های ورود/ثبت نام -->
+    <div class="buttons" id="menuButtons">
+        <a href="../login-and-register/register/register.html">
+            <button class="login">ورود</button>
+        </a>
+        <a href="../login-and-register/login/index.html">
+            <button class="signup">ثبت نام</button>
+        </a>
+    </div>
+</header>
+
+<div class="container">
+    <!-- بخش محتوای اصلی (سمت چپ) -->
+    <section class="main-content">
+        <h1>عنوان هدر اصلی</h1>
+        <!-- هدر مشکی بالای محتوای اصلی -->
+        <div class="header-box" id="headerBox">
+            <img src="" alt="">
+        </div>
+
+        <!-- باکس محتوا (اول) -->
+        <div class="content-box">
+            <div class="box-heading">باکس اول</div>
+            <p>
+                لورم ایپسوم متن ساختگی با تولید سادگی از صنعت چاپ است و با استفاده از طراحان گرافیک
+                به شکل کلی در صفحات وب و بسته‌بندی‌ها رواج یافته. این متن از نظر ساختار ظاهری چیزی
+                شبیه به متن واقعی است اما برای بررسی طرح و چیدمان المان‌ها به کار می‌رود. در واقع هدف
+                از استفادهٔ آن این است که خواننده تمرکزش روی محتوا نباشد و ظاهر گرافیکی طرح را ارزیابی کند.
+                <br><br>
+                این متن ریشه در نوشته‌هایی از قرن پانزدهم دارد و همواره ابزار مفیدی برای آزمودن متن در
+                صنعت چاپ و نشر به شمار می‌رود. امروز نیز برای شبیه‌سازی و پیش‌نمایش صفحات نرم‌افزارهای
+                مختلف مثل مایکروسافت ورد و فتوشاپ به کار می‌رود تا طرح کلی پیش از نهایی شدن به شکلی
+                واقع‌گرایانه‌ دیده شود.
+            </p>
+        </div>
+
+        <!-- باکس محتوا (دوم) -->
+        <div class="content-box">
+            <div class="box-heading">باکس دوم</div>
+            <p>
+                در ادامهٔ تاریخچهٔ لورم ایپسوم، افراد بسیاری تلاش کرده‌اند تا جایگزین‌های مختلفی برای
+                این متن ارائه دهند. اما به دلیل عادت کاربران و طراحان به شکل ظاهری آن، هنوز هم یکی
+                از پرکاربردترین متن‌های نمایشی در جهان است. لورم ایپسوم علاوه بر صنعت نشر و گرافیک،
+                در طراحی سایت و تولید پروتوتایپ‌های اولیهٔ محصولات نرم‌افزاری نیز جایگاه ویژه‌ای
+                دارد.
+                <br><br>
+                به‌طور کلی، طراحان و برنامه‌نویسان زمانی که می‌خواهند نمونه‌ای از صفحهٔ وب یا خروجی
+                طراحی خود را آزمایش کنند، به جای پرداختن به محتوای اصلی، متن لورم ایپسوم را جایگزین
+                می‌کنند تا پروژه در عین حال که ساختار واقعی دارد، از محتوای نهایی بی‌نیاز باشد و
+                سرعت کار نیز افزایش یابد.
+            </p>
+        </div>
+    </section>
+
+    <!-- ستون کناری (سمت راست) -->
+    <aside class="sidebar">
+        <h3>وبلاگ مرتبط:</h3>
+
+        <div class="sidebar-card">
+            <img src="../IMG/images.jpeg" alt="قابلیت‌های مهم هوش مصنوعی در صنعت چاپ">
+            <p>قابلیت‌های مهم هوش مصنوعی در صنعت چاپ</p>
+        </div>
+
+        <div class="sidebar-card">
+            <img src="../IMG/images.jpeg" alt="رمزارزهای محبوب و تاثیر آن‌ها">
+            <p>رمزارزهای محبوب و تاثیر آن‌ها</p>
+        </div>
+
+        <div class="sidebar-card">
+            <img src="../IMG/images.jpeg" alt="هوش مصنوعی چطور کار می‌کند">
+            <p>هوش مصنوعی چطور کار می‌کند</p>
+        </div>
+    </aside>
+</div>
+
+<footer class="footer-section">
+    <div class="footer-container">
+        <!-- ستون ۱ (راست‌ترین ستون): روبیکد -->
+        <div class="footer-col about-col">
+            <h2>روبیکد</h2>
+            <p>
+                تیم روبیکد متخصص در ساخت وب
+                <br>
+                سایت و اپلیکیشن و ابزار های هوش مصنوعی
+            </p>
+        </div>
+
+        <!-- ستون ۲: لینک های مفید -->
+        <div class="footer-col">
+            <h3>لینک های مفید</h3>
+            <ul>
+                <li><a href="../product/index.html">محصولات</a></li>
+                <li><a href="../Team/index.html">تیم</a></li>
+                <li><a href="../about-us/index.html">درباره ما</a></li>
+            </ul>
+        </div>
+
+        <!-- ستون ۳: لینک های سریع -->
+        <div class="footer-col">
+            <h3>لینک های سریع</h3>
+            <ul>
+                <li><a href="../product/index.html#mySlider">سایت ها</a></li>
+                <li><a href="../product/index.html#mySlider">افزونه</a></li>
+                <li><a href="../product/index.html#mySlider">اپلیکیشن</a></li>
+                <li><a href="../Weblog/index.html">وبلاگ</a></li>
+            </ul>
+        </div>
+
+        <!-- ستون ۴ (چپ‌ترین ستون): شبکه‌های اجتماعی -->
+        <div class="footer-col social-col">
+            <h3>شبکه‌های اجتماعی</h3>
+            <ul>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                    <a href="https://www.instagram.com/robi.code/" target="_blank">Instagram</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="X Logo">
+                    <a href="https://x.com/amirakbari99811" target="_blank">Twitter</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                    <a href="https://www.linkedin.com/in/amir-mohammad-akbari-1891672b7/" target="_blank">LinkedIn</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                    <a href="https://www.youtube.com/@amirmohammadakbari-AI" target="_blank">YouTube</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- اسکریپت جاوااسکریپت -->
+<script src="script.js"></script>
+</body>
+</html>

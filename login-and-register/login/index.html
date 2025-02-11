@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام در روبیک</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="container">
+    <h2>ثبت نام در روبیکد</h2>
+    <form>
+        <!-- دو ستون اول: نام کاربری و رمز عبور -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="username"></label>
+                <input type="text" id="username" placeholder="نام کاربری">
+            </div>
+            <div class="form-group">
+                <label for="password"></label>
+                <input type="password" id="password" placeholder="رمز عبور">
+            </div>
+        </div>
+
+        <!-- دو ستون دوم: تکرار رمز عبور و نام کامل -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="confirm-password"></label>
+                <input type="password" id="confirm-password" placeholder="تکرار رمز عبور">
+            </div>
+            <div class="form-group">
+                <label for="fullname"></label>
+                <input type="text" id="fullname" placeholder="نام کامل">
+            </div>
+        </div>
+
+        <!-- دو ستون سوم: شماره تماس و ایمیل -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="phone"></label>
+                <input type="text" id="phone" placeholder="شماره تماس">
+            </div>
+            <div class="form-group">
+                <label for="email"></label>
+                <input type="email" id="email" placeholder="ایمیل">
+            </div>
+        </div>
+
+        <!-- دکمه‌ها -->
+        <button type="submit" class="btn btn-primary">ثبت نام</button>
+        <button type="button" class="btn btn-secondary">ورود</button>
+        <button type="button" class="btn btn-google">
+            <img src="../../IMG/icons8-google-48.png" alt="Google Logo">
+            google account
+        </button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت من - دوره فرانت</title>
+    <link rel="stylesheet" href="courses.css">
+</head>
+<body>
+<!-- هدر سایت -->
+<header>
+    <div class="logo">
+        <img src="../IMG/Asset%201@2x.png" alt="لوگو" class="logo-img">
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav id="navMenu">
+        <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../product/index.html">محصولات</a></li>
+            <li><a href="../Team/index.html">تیم</a></li>
+            <li><a href="../about-us/index.html">درباره ما</a></li>
+            <li><a href="../Weblog/index.html">وبلاگ</a></li>
+            <li><a href="#">دوره ها</a></li>
+            <li><a href="../contact-with-us/index.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+    <div class="buttons" id="menuButtons">
+        <a href="../user-panel/index.html">
+            <button class="login">
+                <img src="../IMG/icons8-google-48.png" alt="">
+            </button>
+        </a>
+    </div>
+</header>
+
+<!-- بخش دوره (Course Card) -->
+<div class="container">
+    <div class="course-card">
+        <div class="video-box">
+            <!-- تصویر یا ویدیوی دوره -->
+        </div>
+        <div class="content">
+            <h2>دوره فرانت از مقدماتی تا پیشرفته</h2>
+            <p>این دوره برای علاقه‌مندان به دنیای فرانت است. من اکبری افلاکی شما را به دنیای فرانت‌اند دعوت می‌کنم.</p>
+            <div class="details">
+                <span>مدرس: <a href="#">امیر محمد اکبری افلاکی</a></span>
+                <span>سطح دوره: پیشرفته</span>
+                <span>⏳ مدت زمان دوره: ۳ ساعت</span>
+            </div>
+            <div class="price">💰 قیمت دوره: <span>رایگان</span></div>
+            <div class="container-of-button">
+                <a href="../courses-page/index.html">
+                    <button class="start-btn">شروع دوره</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- بخش تب‌های اطلاعات دوره -->
+<div class="container-of-second-box">
+    <div class="tabs-container">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#" class="tab-link active" data-tab="description">توضیح</a></li>
+                <li><a href="#" class="tab-link" data-tab="reviews">نظرات</a></li>
+                <li><a href="#" class="tab-link" data-tab="faq">سوالات شما</a></li>
+                <li><a href="#" class="tab-link" data-tab="chapters">سرفصل‌ها</a></li>
+                <li><a href="#" class="tab-link" data-tab="teacher">مدرس</a></li>
+            </ul>
+        </nav>
+        <div class="tabs-content">
+            <div id="tab-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- اسکریپت‌های صفحه -->
+<script src="courses.js"></script>
+</body>
+</html>

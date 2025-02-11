@@ -1,0 +1,650 @@
+/* ===================== استایل‌های کلی و ریست ===================== */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #0f101a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===================== استایل هدر ===================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    background-color: #0f101a;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-img {
+    width: 81px;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+    transition: color 0.3s;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: #007BFF;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.buttons button {
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: background 0.3s;
+    height: 47px;
+}
+
+.login {
+    background: #ddd;
+}
+
+.signup {
+    background: #007BFF;
+    color: white;
+}
+
+.signup:hover {
+    background: #0056b3;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===================== استایل دوره (Course Card) ===================== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    flex-grow: 1;
+}
+
+.course-card {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+    direction: ltr;
+}
+
+.video-box {
+    width: 400px;
+    height: 220px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    flex-shrink: 0;
+    overflow: hidden;
+    /* حفظ تناسب 16:9 */
+    aspect-ratio: 16 / 9;
+}
+
+.content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.content h2 {
+    font-size: 22px;
+    margin-bottom: 24px;
+}
+
+.content p {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.details {
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.details span {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.details a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.price span {
+    color: #00ff00;
+}
+
+.container-of-button {
+    display: flex;
+    justify-content: end;
+    margin-left: 2vw;
+}
+
+.start-btn {
+    background-color: #2979ff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.start-btn:hover {
+    background-color: #1c5cc5;
+}
+
+/* ===================== مدیا کوئری‌های دوره ===================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    nav,
+    .buttons {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav.active,
+    .buttons.active {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }
+    .course-card {
+        padding: 15px;
+    }
+    .content h2 {
+        font-size: 20px;
+    }
+    .price {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .video-box {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .content {
+        padding-right: 0;
+    }
+    .container-of-button {
+        justify-content: center;
+        margin-left: 0;
+    }
+    .navbar {
+        background-color: #1e1e1e;
+        padding: 15px 0;
+        border-radius: 8px;
+        display: flex;
+        justify-content: unset;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content h2 {
+        font-size: 18px;
+    }
+    .content p {
+        font-size: 13px;
+    }
+    .details {
+        font-size: 12px;
+    }
+    .price {
+        font-size: 14px;
+    }
+    .start-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* ===================== استایل رابط کاربری تب‌ها ===================== */
+.container-of-second-box {
+    background-color: #F5F7F8;
+}
+.tabs-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: #0f101a;
+    padding-top: 7vh;
+}
+.navbar {
+    background-color: #1e1e1e;
+    padding: 15px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.navbar ul li {
+    margin: 0 15px;
+}
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+.navbar ul li a.active,
+.navbar ul li a:hover {
+    border-bottom: 2px solid white;
+    font-weight: bold;
+}
+.tabs-content {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+}
+.tabs-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.tabs-content p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ===================== استایل بخش نظرات ===================== */
+.comment-section {
+    max-width: 700px;
+    margin: auto;
+    background: #181818;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.input-container {
+    display: flex;
+    align-items: center;
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.comment-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+.send-btn {
+    background: #2979ff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+.send-btn:hover {
+    background: #1c5cc5;
+}
+.comment-list {
+    margin-top: 20px;
+    text-align: right;
+}
+.comment {
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    margin-bottom: 10px;
+}
+.comment-content {
+    width: 100%;
+    text-align: right;
+    overflow-wrap: break-word;
+}
+.comment strong {
+    color: #4a90e2;
+    display: block;
+}
+.comment small {
+    color: #b0b0b0;
+    display: block;
+    margin-top: 5px;
+}
+.reply {
+    color: #4a90e2;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 5px;
+}
+.reply-input-container {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #333;
+    border-radius: 5px;
+}
+.reply-input {
+    width: 80%;
+    padding: 5px;
+    border: none;
+    background: #444;
+    color: white;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.reply-send {
+    background: #2979ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* ===================== استایل بخش FAQ (سوالات شما) ===================== */
+.faq-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+.faq-item {
+    background-color: #222;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #333;
+    border-radius: 8px;
+}
+.faq-header:hover {
+    background-color: #444;
+}
+.faq-header span {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+.faq-content {
+    padding: 15px;
+    font-size: 16px;
+    display: none;
+    background-color: #292929;
+    border-top: 1px solid #444;
+}
+.faq-item.active .faq-header span {
+    transform: rotate(180deg);
+}
+
+/* ===================== استایل کارت پروفایل مدرس ===================== */
+.profile-card {
+    display: flex;
+    flex-direction: row-reverse; /* جابجایی المان‌های چپ و راست */
+    align-items: center;
+    background-color: #23242d;
+    padding: 15px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    max-width: 500px;
+    width: 100%;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+.profile-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.profile-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+.profile-title {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-bottom: 15px;
+}
+.resume-btn {
+    background-color: #2979ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    width: fit-content;
+}
+.resume-btn:hover {
+    background-color: #1c5cc5;
+    transform: scale(1.05);
+}
+@media (max-width: 480px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 10px;
+    }
+    .profile-image {
+        width: 90px;
+        height: 90px;
+    }
+    .resume-btn {
+        width: 100%;
+    }
+}
+
+/* ===================== استایل سرفصل‌های دوره (Accordion) ===================== */
+.chapters-accordion-container {
+    width: 60%;
+    margin: auto;
+    padding-top: 20px;
+    background-color: #1c1c24;
+    padding: 20px;
+    border-radius: 10px;
+}
+.chapters-accordion-container .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2d2d3b;
+}
+.chapters-accordion-container .tabs div {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+.chapters-accordion-container .tabs div.active {
+    border-bottom: 2px solid white;
+    font-weight: bold;
+}
+.chapters-accordion-container .accordion {
+    background-color: #2a2a32;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    text-align: right;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    direction: rtl;
+}
+.chapters-accordion-container .accordion:hover {
+    background-color: #3a3a42;
+}
+.chapters-accordion-container .panel {
+    padding: 0 15px;
+    display: none;
+    background-color: #33333d;
+    text-align: right;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.chapters-accordion-container .panel div {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: rtl;
+}
+.chapters-accordion-container .icon {
+    font-size: 14px;
+}

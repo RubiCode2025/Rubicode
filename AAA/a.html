@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازسازی رابط کاربری</title>
+    <style>
+        /* تنظیمات کلی */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #181A1F;
+            color: #ffffff;
+            font-family: sans-serif;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* کانتینر کلی */
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            background-color: #1E1F26;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* سایدبار (اکنون در سمت راست است) */
+        .sidebar {
+            width: 300px;
+            background-color: #262A30;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* آیتم‌های سایدبار */
+        .sidebar-item {
+            background-color: #2F3339;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .sidebar-item:hover {
+            background-color: #3B3F45;
+        }
+
+        /* زیرمنو */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+            background: #2F3339;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+
+        .submenu.open {
+            max-height: 200px;
+            opacity: 1;
+            padding: 10px;
+        }
+
+        .submenu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        .submenu-item a {
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submenu-item a:hover {
+            color: #ffffff;
+        }
+
+        .submenu-item-icon {
+            width: 16px;
+            height: 16px;
+            fill: #bbb;
+            transition: fill 0.3s;
+        }
+
+        .submenu-item a:hover .submenu-item-icon {
+            fill: #ffffff;
+        }
+
+        /* بخش محتوا (اکنون در سمت چپ است) */
+        .content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* کارت ویدیو */
+        .video-card {
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        /* اطلاعات کارت */
+        .video-title {
+            margin: 15px 0 10px;
+            font-size: 18px;
+        }
+
+        .video-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* نوار اکشن */
+        .action-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            gap: 15px;
+        }
+
+        .download-button {
+            background-color: #3578e5;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: #285fb0;
+        }
+
+        .action-icon {
+            width: 24px;
+            height: 24px;
+            fill: #bbb;
+            cursor: pointer;
+            transition: fill 0.3s;
+        }
+
+        .action-icon:hover {
+            fill: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- بخش محتوا (اکنون در سمت چپ) -->
+    <div class="content">
+        <!-- ویدیو -->
+        <div class="video-card"></div>
+        <div class="video-title">فرانت چیه و باید داخل فرانت چیکار کرد</div>
+        <div class="video-info">
+            <span>100+ لایک</span>
+            <span>125 بازدید</span>
+        </div>
+        <div class="action-bar">
+            <button class="download-button">لینک دانلود</button>
+            <svg class="action-icon" viewBox="0 0 384 512">
+                <path d="M0 0v512l192-128 192 128V0H0z"></path>
+            </svg>
+            <svg class="action-icon" viewBox="0 0 512 512">
+                <path d="M462.3 62.7c-54.5-46.4-136-38.3-186.4 13.7L256 96l-19.9-19.6
+                    c-50.3-52-131.8-60.1-186.4-13.7-62.2 53-66.1 149.8-9.9 207.9l175.8 179.2
+                    c10 10.2 23.3 15.8 37.4 15.8 14.1 0 27.3-5.6 37.4-15.8l175.8-179.2
+                    c56.2-58.1 52.3-154.9-9.9-207.9z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- سایدبار (اکنون در سمت راست) -->
+    <div class="sidebar">
+        <div class="sidebar-item" onclick="toggleSubmenu(this)">
+            <span>فصل اول آشنایی</span>
+            <span>▼</span>
+        </div>
+        <div class="submenu">
+            <div class="submenu-item"><a href="#">مقدمه</a></div>
+            <div class="submenu-item"><a href="#">معرفی زبان‌ها</a></div>
+            <div class="submenu-item"><a href="#">اولین پروژه</a></div>
+        </div>
+
+        <div class="sidebar-item" onclick="toggleSubmenu(this)">
+            <span>دست به کد شو</span>
+            <span>▼</span>
+        </div>
+        <div class="submenu">
+            <div class="submenu-item"><a href="#">نصب محیط توسعه</a></div>
+            <div class="submenu-item"><a href="#">اولین دستورات</a></div>
+        </div>
+
+        <div class="sidebar-item" onclick="toggleSubmenu(this)">
+            <span>با تمرین کار در میاد</span>
+            <span>▼</span>
+        </div>
+        <div class="submenu">
+            <div class="submenu-item">
+                <a href="#"><svg class="submenu-item-icon" viewBox="0 0 512 512">
+                    <path d="M96 52v408l320-204L96 52z"></path>
+                </svg> تمرین لاگین پیج</a>
+            </div>
+            <div class="submenu-item">
+                <a href="#"><svg class="submenu-item-icon" viewBox="0 0 512 512">
+                    <path d="M96 52v408l320-204L96 52z"></path>
+                </svg> هدر و فوتر</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleSubmenu(element) {
+        const submenu = element.nextElementSibling;
+        submenu.classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>

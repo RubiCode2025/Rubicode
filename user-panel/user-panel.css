@@ -1,0 +1,355 @@
+/* ----------------- استایل‌های کلی ----------------- */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Vazirmatn, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F7F8;
+    /* رنگ پس‌زمینه کلی سایت (برای بخش‌هایی خارج از داشبورد) */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ----------------- استایل هدر ----------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo-img {
+    width: 81px;
+    height: auto;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    margin: 0 20px;
+}
+nav ul li a {
+    font-size: 18px;
+    font-weight: bolder;
+    color: #333;
+    transition: color 0.3s;
+}
+nav ul li a:hover {
+    color: #007BFF;
+}
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+.buttons a.login {
+    background: #ddd;
+    border-radius: 99px;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+.buttons a.login:hover {
+    background: #ccc;
+}
+
+/* دکمه همبرگری */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.hamburger:focus {
+    outline: none;
+}
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+/* تغییر به ضربدر */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ----------------- استایل‌های موبایل (هدر) ----------------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .hamburger {
+        display: flex;
+    }
+    nav,
+    .buttons {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+    nav.active,
+    .buttons.active {
+        display: flex;
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin: 4px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px 10px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+/* ----------------- استایل بخش داشبورد ----------------- */
+/* یک کانتینر برای داشبورد به‌منظور جداسازی استایل‌های تیره از بقیه صفحه */
+.dashboard-wrapper {
+    background-color: #F5F7F8;
+    min-height: 100vh;
+    padding: 20px;
+}
+.dashboard {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #2c2f33;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+.sidebar {
+    width: 30%;
+    background-color: #0d0f17;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sidebar .profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.sidebar .username {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.menu-item {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #1c1e26;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.menu-item:hover,
+.menu-item.active {
+    background-color: #1c4c85;
+}
+.content {
+    width: 70%;
+    padding: 30px;
+}
+
+/* استایل فرم در قسمت آپدیت اطلاعات */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-bottom: 15px;
+}
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+}
+.btn {
+    width: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-primary {
+    background-color: #1c4c85;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #123a6b;
+}
+
+/* استایل کارت دوره */
+.course-card {
+    background-color: #1c1e26;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.course-info {
+    flex: 1 1 60%;
+}
+.course-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.course-meta {
+    font-size: 12px;
+    color: #b0b0b0;
+}
+.btn-watch {
+    background-color: #1c4c85;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+.btn-watch:hover {
+    background-color: #123a6b;
+}
+.course-image {
+    width: 200px;
+    height: 160px;
+    background-color: #fff;
+    border-radius: 5px;
+    flex: 1 1 35%;
+    margin-top: 10px;
+}
+.btn-save {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.btn-save:hover {
+    background-color: #e6b800;
+}
+
+/* استایل بخش اطلاعیه‌ها */
+.tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #444;
+    margin-bottom: 15px;
+}
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.tab.active {
+    border-bottom: 3px solid #1c4c85;
+    color: #1c4c85;
+}
+.notification-box {
+    background-color: #1c1e26;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* ----------------- استایل‌های واکنش‌گرا برای داشبورد ----------------- */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    .sidebar, .content {
+        width: 100%;
+    }
+    .content {
+        padding: 20px;
+    }
+    .course-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-item {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .course-title {
+        font-size: 14px;
+    }
+    .course-meta {
+        font-size: 10px;
+    }
+    .btn, .btn-watch, .btn-save {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}

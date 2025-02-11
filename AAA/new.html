@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه یکپارچه – رابط کاربری و دوره فرانت</title>
+    <!-- فونت وزیر -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
+    <style>
+        /* استایل‌های کلی برای هر دو بخش */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazir', sans-serif;
+            direction: rtl;
+            background-color: #181A1F;
+            color: #fff;
+        }
+
+        /* ========== استایل بخش اول: بازسازی رابط کاربری ========== */
+        .ui-container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            background-color: #1E1F26;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        /* بخش محتوا (سمت چپ) */
+        .content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        .video-card {
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        .video-title {
+            margin: 15px 0 10px;
+            font-size: 18px;
+        }
+        .video-info {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        .action-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            gap: 15px;
+        }
+        .download-button {
+            background-color: #3578e5;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .download-button:hover {
+            background-color: #285fb0;
+        }
+        .action-icon {
+            width: 24px;
+            height: 24px;
+            fill: #bbb;
+            cursor: pointer;
+            transition: fill 0.3s;
+        }
+        .action-icon:hover {
+            fill: #fff;
+        }
+        /* سایدبار (سمت راست) */
+        .sidebar {
+            width: 300px;
+            background-color: #262A30;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .sidebar-item {
+            background-color: #2F3339;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .sidebar-item:hover {
+            background-color: #3B3F45;
+        }
+        /* زیرمنو */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+            background: #2F3339;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        .submenu.open {
+            max-height: 200px;
+            opacity: 1;
+            padding: 10px;
+        }
+        .submenu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+            font-size: 14px;
+        }
+        .submenu-item a {
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .submenu-item a:hover {
+            color: #fff;
+        }
+        .submenu-item-icon {
+            width: 16px;
+            height: 16px;
+            fill: #bbb;
+            transition: fill 0.3s;
+        }
+        .submenu-item a:hover .submenu-item-icon {
+            fill: #fff;
+        }
+
+        /* ========== استایل بخش دوم: صفحه دوره فرانت (تب‌ها) ========== */
+        .tabs-container {
+            background: #1c1c1c;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            width: 70%;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+        }
+        .tabs button {
+            background: none;
+            border: none;
+            color: #bbb;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding-bottom: 5px;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .tabs button:hover,
+        .tabs button.active {
+            color: #fff;
+        }
+        .tabs button.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            bottom: -10px;
+            left: 0;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        p {
+            font-size: 1.1rem;
+            text-align: justify;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+<!-- بخش اول: بازسازی رابط کاربری -->
+<div class="ui-container">
+    <!-- بخش محتوا (سمت چپ) -->
+    <div class="content">
+        <div class="video-card"></div>
+        <div class="video-title">فرانت چیه و باید داخل فرانت چیکار کرد</div>
+        <div class="video-info">
+            <span>100+ لایک</span>
+            <span>125 بازدید</span>
+        </div>
+        <div class="action-bar">
+            <button class="download-button">لینک دانلود</button>
+            <svg class="action-icon" viewBox="0 0 384 512">
+                <path d="M0 0v512l192-128 192 128V0H0z"></path>
+            </svg>
+            <svg class="action-icon" viewBox="0 0 512 512">
+                <path d="M462.3 62.7c-54.5-46.4-136-38.3-186.4 13.7L256 96l-19.9-19.6
+                   c-50.3-52-131.8-60.1-186.4-13.7-62.2 53-66.1 149.8-9.9 207.9l175.8 179.2
+                   c10 10.2 23.3 15.8 37.4 15.8 14.1 0 27.3-5.6 37.4-15.8l175.8-179.2
+                   c56.2-58.1 52.3-154.9-9.9-207.9z"></path>
+            </svg>
+        </div>
+    </div>
+    <!-- سایدبار (سمت راست) -->
+    <div class="sidebar">
+        <div class="sidebar-item" onclick="toggleSubmenu(this)">
+            <span>فصل اول آشنایی</span>
+            <span>▼</span>
+        </div>
+        <div class="submenu">
+            <div class="submenu-item"><a href="#">مقدمه</a></div>
+            <div class="submenu-item"><a href="#">معرفی زبان‌ها</a></div>
+            <div class="submenu-item"><a href="#">اولین پروژه</a></div>
+        </div>
+
+        <div class="sidebar-item" onclick="toggleSubmenu(this)">
+            <span>دست به کد شو</span>
+            <span>▼</span>
+        </div>
+        <div class="submenu">
+            <div class="submenu-item"><a href="#">نصب محیط توسعه</a></div>
+            <div class="submenu-item"><a href="#">اولین دستورات</a></div>
+        </div>
+
+        <div class="sidebar-item" onclick="toggleSubmenu(this)">
+            <span>با تمرین کار در میاد</span>
+            <span>▼</span>
+        </div>
+        <div class="submenu">
+            <div class="submenu-item">
+                <a href="#">
+                    <svg class="submenu-item-icon" viewBox="0 0 512 512">
+                        <path d="M96 52v408l320-204L96 52z"></path>
+                    </svg>
+                    تمرین لاگین پیج
+                </a>
+            </div>
+            <div class="submenu-item">
+                <a href="#">
+                    <svg class="submenu-item-icon" viewBox="0 0 512 512">
+                        <path d="M96 52v408l320-204L96 52z"></path>
+                    </svg>
+                    هدر و فوتر
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- بخش دوم: صفحه دوره فرانت (تب‌ها) -->
+<div class="tabs-container">
+    <div class="tabs">
+        <button id="tab-expl" class="active">توضیح</button>
+        <button id="tab-comments">نظرات</button>
+    </div>
+
+    <div id="explanation" class="tab-content active">
+        <h2>درباره دوره فرانت</h2>
+        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+        <h2>این دوره برای کیا خوبه</h2>
+        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+    </div>
+
+    <div id="comments" class="tab-content">
+        <h2>نظرات کاربران</h2>
+        <p>این بخش برای نمایش نظرات کاربران درباره دوره می‌باشد...</p>
+    </div>
+</div>
+
+<script>
+    // اسکریپت باز/بستن زیرمنوهای سایدبار
+    function toggleSubmenu(element) {
+        const submenu = element.nextElementSibling;
+        submenu.classList.toggle('open');
+    }
+
+    // اسکریپت تغییر تب‌های صفحه دوره
+    const explTab = document.getElementById('tab-expl');
+    const commTab = document.getElementById('tab-comments');
+    const explContent = document.getElementById('explanation');
+    const commContent = document.getElementById('comments');
+
+    explTab.addEventListener('click', () => {
+        explTab.classList.add('active');
+        commTab.classList.remove('active');
+        explContent.classList.add('active');
+        commContent.classList.remove('active');
+    });
+
+    commTab.addEventListener('click', () => {
+        commTab.classList.add('active');
+        explTab.classList.remove('active');
+        commContent.classList.add('active');
+        explContent.classList.remove('active');
+    });
+</script>
+</body>
+</html>

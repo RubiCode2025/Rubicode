@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه دوره فرانت</title>
+    <!-- فونت مورد استفاده -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
+    <!-- آیکون‌ها (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- استایل‌های خارجی (در صورت نیاز) -->
+    <link rel="stylesheet" href="courses-page.css">
+</head>
+<body>
+<!-- -------------------- Header -------------------- -->
+<header>
+    <div class="logo">
+        <img src="../IMG/Asset%201@2x.png" alt="لوگو" class="logo-img">
+    </div>
+    <!-- دکمه همبرگری (برای موبایل) -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <!-- منوی ناوبری -->
+    <nav id="navMenu">
+        <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../product/index.html">محصولات</a></li>
+            <li><a href="../Team/index.html">تیم</a></li>
+            <li><a href="../about-us/index.html">درباره ما</a></li>
+            <li><a href="../Weblog/index.html">وبلاگ</a></li>
+            <li><a href="../courses/index.html">دوره ها</a></li>
+            <li><a href="../contact-with-us/index.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+    <!-- دکمه‌های ورود/ثبت نام -->
+    <div class="buttons" id="menuButtons">
+        <a href="../login-and-register/register/register.html">
+            <button class="login">ورود</button>
+        </a>
+        <a href="../login-and-register/login/index.html">
+            <button class="signup">ثبت نام</button>
+        </a>
+    </div>
+</header>
+
+<!-- -------------------- محتوای دوره فرانت -------------------- -->
+<div class="container-of-container">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-item" onclick="toggleSubmenu(this)">
+                فصل اول آشنایی
+                <span>▼</span>
+            </div>
+            <div class="submenu">
+                <div>مقدمه</div>
+                <div>معرفی زبان‌ها</div>
+            </div>
+        </aside>
+        <main class="content">
+            <div class="video-card"></div>
+            <div class="video-title">فرانت چیه و باید داخل فرانت چیکار کرد</div>
+            <div class="video-info">
+                <span>100+ لایک</span>
+                <span>125 بازدید</span>
+            </div>
+            <button class="download-button">لینک دانلود</button>
+        </main>
+    </div>
+</div>
+
+<!-- -------------------- بخش تب‌ها -------------------- -->
+<div class="container-of-tabs-container">
+    <div class="tabs-container">
+        <div class="tabs">
+            <button id="tab-explanation" class="active">توضیح</button>
+            <button id="tab-comments">نظرات</button>
+        </div>
+        <div id="explanation" class="tab-content active">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+        </div>
+        <div id="comments" class="tab-content">
+            نظرات کاربران
+        </div>
+    </div>
+</div>
+
+<!-- -------------------- فوتر -------------------- -->
+<footer class="footer-section">
+    <div class="footer-container">
+        <!-- ستون درباره روبیکد -->
+        <div class="footer-col about-col">
+            <h2>روبیکد</h2>
+            <p>
+                تیم روبیکد متخصص در ساخت وب<br>
+                سایت و اپلیکیشن و ابزار های هوش مصنوعی
+            </p>
+        </div>
+        <!-- ستون لینک‌های مفید -->
+        <div class="footer-col">
+            <h3>لینک های مفید</h3>
+            <ul>
+                <li><a href="../product/index.html">محصولات</a></li>
+                <li><a href="../Team/index.html">تیم</a></li>
+                <li><a href="../about-us/index.html">درباره ما</a></li>
+            </ul>
+        </div>
+        <!-- ستون لینک‌های سریع -->
+        <div class="footer-col">
+            <h3>لینک های سریع</h3>
+            <ul>
+                <li><a href="../product/index.html">سایت ها</a></li>
+                <li><a href="../product/index.html">افزونه</a></li>
+                <li><a href="../product/index.html">اپلیکیشن</a></li>
+                <li><a href="../Weblog/index.html">وبلاگ</a></li>
+            </ul>
+        </div>
+        <!-- ستون شبکه‌های اجتماعی -->
+        <div class="footer-col social-col">
+            <h3>شبکه‌های اجتماعی</h3>
+            <ul>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                    <a href="https://www.instagram.com/robi.code/" target="_blank">Instagram</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="X Logo">
+                    <a href="https://x.com/amirakbari99811" target="_blank">Twitter</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                    <a href="https://www.linkedin.com/in/amir-mohammad-akbari-1891672b7/" target="_blank">LinkedIn</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                    <a href="https://www.youtube.com/@amirmohammadakbari-AI" target="_blank">YouTube</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- -------------------- Scripts -------------------- -->
+<script src="courses-page.js"></script>
+</body>
+</html>

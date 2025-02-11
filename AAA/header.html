@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هدر یکسان با نمونه اولیه</title>
+    <!-- فراخوانی فونت فارسی -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* -------------------- استایل هدر (مشابه نمونه اولیه) -------------------- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 80px;
+            /* در صورت تمایل می‌توانید پس‌زمینه‌ای برای هدر تعریف کنید */
+            /* background: transparent; */
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo-img {
+            width: 81px;
+            height: auto;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin-top: 32px;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bolder;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .login {
+            background: #ddd;
+        }
+        .signup {
+            background: #007BFF;
+            color: #fff;
+        }
+        .signup:hover {
+            background: #0056b3;
+        }
+        /* -------------------- دکمه همبرگری -------------------- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            /* تنظیمات اضافی برای انیمیشن (مشابه نمونه اولیه) */
+            margin-right: 360px;
+            margin-top: -55px;
+        }
+        .hamburger:focus {
+            outline: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        /* -------------------- ریسپانسیو -------------------- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+            .hamburger {
+                display: flex;
+                margin-right: 0; /* تنظیم مجدد در موبایل */
+                margin-top: 0;
+            }
+            nav,
+            .buttons {
+                display: none;
+                width: 100%;
+                margin-top: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav.active,
+            .buttons.active {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- -------------------- هدر -------------------- -->
+<header>
+    <div class="logo">
+        <img src="../IMG/Asset%201@2x.png" alt="لوگو" class="logo-img">
+    </div>
+    <!-- منوی همبرگری -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <!-- منوی ناوبری -->
+    <nav id="navMenu">
+        <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../product/index.html">محصولات</a></li>
+            <li><a href="../Team/index.html">تیم</a></li>
+            <li><a href="../about-us/index.html">درباره ما</a></li>
+            <li><a href="../Weblog/index.html">وبلاگ</a></li>
+            <li><a href="../courses/index.html">دوره ها</a></li>
+            <li><a href="../contact-with-us/index.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+    <!-- دکمه‌های ورود/ثبت‌نام -->
+    <div class="buttons" id="menuButtons">
+        <a href="../login-and-register/register/register.html">
+            <button class="login">ورود</button>
+        </a>
+        <a href="../login-and-register/login/index.html">
+            <button class="signup">ثبت نام</button>
+        </a>
+    </div>
+</header>
+
+<!-- -------------------- اسکریپت منوی همبرگری -------------------- -->
+<script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navMenu = document.getElementById("navMenu");
+    const menuButtons = document.getElementById("menuButtons");
+
+    function toggleMenu() {
+        hamburgerBtn.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        menuButtons.classList.toggle("active");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMenu);
+</script>
+</body>
+</html>

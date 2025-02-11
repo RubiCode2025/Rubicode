@@ -1,0 +1,370 @@
+/* تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #F5F7F8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ظرف کلی (ستون چپ: محتوای اصلی، ستون راست: وبلاگ مرتبط) */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 320px; /* 1fr = فضای باقیمانده سمت چپ، 320px = ستون کناری */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* -- بخش محتوای اصلی (سمت چپ) -- */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* هدر بزرگ (مشکی) بالای صفحه در سمت چپ */
+.header-box {
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    height: 46vh;
+    display: flex;
+    align-items: center;
+}
+
+.header-box h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-right: 10px;
+}
+
+.header-box button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.header-box button:hover {
+    background-color: #444;
+}
+
+/* باکس‌های محتوای سمت چپ */
+.content-box {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.box-heading {
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 14px;
+    padding-right: 5px; /* فاصله با خط زیری */
+}
+.box-heading::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 50px;
+    height: 3px;
+    background-color: #f57c00; /* رنگ نوار زیر تیتر */
+}
+
+.content-box p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* -- ستون کناری (وبلاگ مرتبط) در سمت راست -- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* کارت‌های ستون کناری */
+.sidebar-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.sidebar-card p {
+    padding: 10px;
+    font-size: 0.95rem;
+    text-align: center;
+    color: #444;
+}
+.sidebar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* -- هدر اصلی سایت (ناوبری بالا) -- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F5F7F8;
+    padding: 15px 80px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #007BFF;
+}
+.class{
+    width: 80px;
+    height: 80px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bolder;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #007BFF;
+}
+
+.buttons button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.login {
+    background: #ddd;
+    font-family: 'Vazirmatn', sans-serif;
+
+}
+
+.signup {
+    background: #007BFF;
+    color: white;
+    font-family: 'Vazirmatn', sans-serif;
+
+}
+
+.signup:hover {
+    background: #0056b3;
+}
+
+/* دکمه همبرگری (مخفی در دسکتاپ، نمایش در موبایل) */
+.hamburger {
+    display: none; /* در دسکتاپ مخفی */
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 400px;
+}
+
+/* -- فوتر -- */
+.footer-section {
+    width: 80%;               /* عرض دلخواه */
+    max-width: 1200px;        /* بیشترین عرض */
+    margin: 40px auto;        /* وسط‌چین و فاصله از بالا */
+    background: #141929;      /* پس‌زمینه تیره */
+    border-radius: 16px;      /* گوشه‌های گرد */
+    padding: 40px 20px;       /* فاصله داخلی */
+    color: #fff;              /* رنگ متن سفید */
+    direction: rtl;           /* راست‌چین */
+    font-family: sans-serif;
+}
+
+/* کانتینر اصلی ستون‌ها */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* ستون‌ها در عرض پخش شوند */
+    flex-wrap: wrap;               /* در صفحه‌های کوچک به خط بعد بروند */
+    gap: 40px;                     /* فاصله بین ستون‌ها */
+}
+
+/* هر ستون */
+.footer-col {
+    flex: 1 1 150px;  /* حداقل عرض 150 پیکسل؛ بقیه خودکار */
+    min-width: 130px; /* برای جلوگیری از خیلی باریک شدن در موبایل */
+}
+
+/* ستون «روبیکد» را کمی پهن‌تر کنیم در صورت نیاز */
+.about-col {
+    flex: 2 1 200px;
+}
+
+/* عنوان ستون‌ها */
+.footer-col h2,
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* پاراگراف معرفی */
+.about-col p {
+    line-height: 1.7;
+    color: #ccc; /* خاکستری روشن */
+}
+
+/* لیست لینک‌ها */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* لینک‌های درون لیست */
+.footer-col ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* ستون شبکه‌های اجتماعی (آیکن و متن در یک خط) */
+.social-col ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.social-col img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    display: inline-block;
+}
+
+/* ---------------------------------------------------------------------
+   ریسپانسیو (حفظ ساختار اصلی + منوی همبرگری در موبایل)
+--------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+    /* تغییر ساختار گرید صفحه اصلی */
+    .container {
+        grid-template-columns: 1fr; /* ستون‌ها زیر هم */
+    }
+    .sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 10px;
+    }
+    .sidebar-card {
+        min-width: 200px;
+    }
+
+    /* هدر بالایی سایت در موبایل به صورت ستونی */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+
+    /* دکمه همبرگری در موبایل نمایش داده شود */
+    .hamburger {
+        display: block;
+        margin-top: -70px;
+    }
+
+    /* ناوبری و دکمه‌ها در حالت عادی (موبایل) مخفی باشند */
+    nav,
+    .buttons {
+        display: none;
+        margin-top: 10px;
+        font-family: 'Vazirmatn', sans-serif;
+    }
+
+    /* وقتی کلاس active اضافه شد، نمایش داده شوند */
+    nav.active,
+    .buttons.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        margin-top: 10px;
+        font-family: 'Vazirmatn', sans-serif;
+    }
+    .buttons button {
+        margin: 5px 0;
+        width: 100%;
+        font-family: 'Vazirmatn', sans-serif;
+    }
+
+    /* ارتفاع جعبه مشکی را کمتر کنیم در موبایل */
+    .header-box {
+        height: auto;
+    }
+}

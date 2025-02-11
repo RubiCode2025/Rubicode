@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <title>وبلاگ هوش مصنوعی</title>
+    <link rel="stylesheet" href="Weblog.css">
+
+</head>
+<body>
+
+<header class="top-header">
+
+    <div class="logo">
+        <img src="../IMG/Asset%201@2x.png" alt="لوگو" class="logo-img">
+        <!-- در صورت تمایل، نام برند را اینجا درج کنید -->
+    </div>
+
+    <!-- دکمه همبرگر -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- منوی ناوبری -->
+    <nav id="navMenu">
+        <ul class="nav-list">
+            <li class="li"><a href="../index.html">خانه</a></li>
+            <li class="li"><a href="../product/index.html">محصولات</a></li>
+            <li class="li"><a href="../Team/index.html">تیم</a></li>
+            <li class="li"><a href="../about-us/index.html">درباره ما</a></li>
+            <li class="li"><a href="#">وبلاگ</a></li>
+            <li class="li"><a href="../courses/index.html">دوره ها</a></li>
+            <li class="li"><a href="../contact-with-us/index.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+
+    <div class="buttons" id="menuButtons">
+        <a href="../login-and-register/register/register.html">
+            <button class="login">ورود</button>
+        </a>
+        <a href="../login-and-register/login/index.html">
+            <button class="signup">ثبت نام</button>
+        </a>
+    </div>
+
+</header>
+
+<header class="topic-header">
+    <button class="topic-btn active" onclick="showTopic(1)">موضوع ۱</button>
+    <button class="topic-btn" onclick="showTopic(2)">موضوع ۲</button>
+    <button class="topic-btn" onclick="showTopic(3)">موضوع ۳</button>
+    <button class="topic-btn" onclick="showTopic(4)">موضوع ۴</button>
+</header>
+
+<!-- کانتینر اصلی باکس‌ها -->
+<div class="container">
+    <!-- موضوع 1 -->
+    <section id="topic1" class="topic-content active">
+        <div class="boxes">
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a>
+            <!-- سایر باکس‌ها -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a>
+            <!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a>
+            <!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a><!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a><!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a><!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a><!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a><!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/teamwork.jpeg" alt="AI Image 1">
+                    <span>هوش مصنوعی چطور کار می‌کند</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- موضوع 2 -->
+    <section id="topic2" class="topic-content">
+        <div class="boxes">
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/images.jpeg" alt="AI Image 2">
+                    <span>بهترین هوش مصنوعی دنیا</span>
+                </div>
+            </a>
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/images.jpeg" alt="AI Image 2">
+                    <span>بهترین هوش مصنوعی دنیا</span>
+                </div>
+            </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/images.jpeg" alt="AI Image 2">
+                <span>بهترین هوش مصنوعی دنیا</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/images.jpeg" alt="AI Image 2">
+                <span>بهترین هوش مصنوعی دنیا</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/images.jpeg" alt="AI Image 2">
+                <span>بهترین هوش مصنوعی دنیا</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/images.jpeg" alt="AI Image 2">
+                <span>بهترین هوش مصنوعی دنیا</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/images.jpeg" alt="AI Image 2">
+                <span>بهترین هوش مصنوعی دنیا</span>
+            </div>
+        </a>
+            <!-- سایر باکس‌ها -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/images.jpeg" alt="AI Image 2">
+                    <span>بهترین هوش مصنوعی دنیا</span>
+                </div>
+            </a>
+            <!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/images.jpeg" alt="AI Image 2">
+                    <span>بهترین هوش مصنوعی دنیا</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- موضوع 3 -->
+    <section id="topic3" class="topic-content">
+        <div class="boxes">
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/download.jpeg" alt="AI Image 3">
+                    <span>قابلیت‌های آینده هوش مصنوعی</span>
+                </div>
+            </a>
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/download.jpeg" alt="AI Image 3">
+                    <span>قابلیت‌های آینده هوش مصنوعی</span>
+                </div>
+            </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/download.jpeg" alt="AI Image 3">
+                <span>قابلیت‌های آینده هوش مصنوعی</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/download.jpeg" alt="AI Image 3">
+                <span>قابلیت‌های آینده هوش مصنوعی</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/download.jpeg" alt="AI Image 3">
+                <span>قابلیت‌های آینده هوش مصنوعی</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/download.jpeg" alt="AI Image 3">
+                <span>قابلیت‌های آینده هوش مصنوعی</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/download.jpeg" alt="AI Image 3">
+                <span>قابلیت‌های آینده هوش مصنوعی</span>
+            </div>
+        </a>
+            <!-- سایر باکس‌ها -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/download.jpeg" alt="AI Image 3">
+                    <span>قابلیت‌های آینده هوش مصنوعی</span>
+                </div>
+            </a>
+            <!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/download.jpeg" alt="AI Image 3">
+                    <span>قابلیت‌های آینده هوش مصنوعی</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- موضوع 4 -->
+    <section id="topic4" class="topic-content">
+        <div class="boxes">
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                    <span>ترکیبی از هوش مصنوعی (1)</span>
+                </div>
+            </a>
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                    <span>ترکیبی از هوش مصنوعی (1)</span>
+                </div>
+            </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                <span>ترکیبی از هوش مصنوعی (1)</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                <span>ترکیبی از هوش مصنوعی (1)</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                <span>ترکیبی از هوش مصنوعی (1)</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                <span>ترکیبی از هوش مصنوعی (1)</span>
+            </div>
+        </a><a href="../Weblog-content/index.html">
+            <div class="box">
+                <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                <span>ترکیبی از هوش مصنوعی (1)</span>
+            </div>
+        </a>
+            <!-- سایر باکس‌ها -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                    <span>ترکیبی از هوش مصنوعی (1)</span>
+                </div>
+            </a>
+            <!-- ... تکرار باکس‌ها ... -->
+            <a href="../Weblog-content/index.html">
+                <div class="box">
+                    <img src="../IMG/fcf35018-91cb-4200-9133-700a0be30f91.png" alt="AI Image 1">
+                    <span>ترکیبی از هوش مصنوعی (1)</span>
+                </div>
+            </a>
+        </div>
+    </section>
+</div>
+
+<!-- فوتر -->
+<footer class="footer-section">
+    <div class="footer-container">
+        <!-- ستون ۱ (راست‌ترین ستون): روبیکد -->
+        <div class="footer-col about-col">
+            <h2>روبیکد</h2>
+            <p>
+                تیم روبیکد متخصص در ساخت وب
+                <br>
+                سایت و اپلیکیشن و ابزارهای هوش مصنوعی
+            </p>
+        </div>
+
+        <!-- ستون ۲: لینک‌های مفید -->
+        <div class="footer-col">
+            <h3>لینک‌های مفید</h3>
+            <ul>
+                <li><a href="../product/index.html">محصولات</a></li>
+                <li><a href="../Team/index.html">تیم</a></li>
+                <li><a href="../contact/index.html">تماس با ما</a></li>
+            </ul>
+        </div>
+
+        <!-- ستون ۳: لینک‌های سریع -->
+        <div class="footer-col">
+            <h3>لینک‌های سریع</h3>
+            <ul>
+                <li><a href="../services/index.html">خدمات</a></li>
+                <li><a href="../faq/index.html">سوالات متداول</a></li>
+                <li><a href="#">وبلاگ</a></li>
+                <li><a href="#">سایت‌ها</a></li>
+            </ul>
+        </div>
+
+        <!-- ستون ۴ (چپ‌ترین ستون): شبکه‌های اجتماعی -->
+        <div class="footer-col social-col">
+            <h3>شبکه‌های اجتماعی</h3>
+            <ul>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                    <a href="https://www.instagram.com/robi.code/" target="_blank">Instagram</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="X Logo">
+                    <a href="https://x.com/amirakbari99811" target="_blank">Twitter</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                    <a href="https://www.linkedin.com/in/amir-mohammad-akbari-1891672b7/" target="_blank">LinkedIn</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                    <a href="https://www.youtube.com/@amirmohammadakbari-AI" target="_blank">YouTube</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

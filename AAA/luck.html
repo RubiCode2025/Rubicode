@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه دوره فرانت</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
+    <style>
+        /* تنظیمات کلی */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', sans-serif;
+        }
+        body {
+            background-color: #F5F7F8;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* باکس بالایی: محتوای ویدیو و سایدبار */
+        .container-of-container{
+            display: flex;
+            justify-content: center;
+            width: 102.7%;
+            background: #181823;
+            margin-top: -20px;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1100px;
+            background: #1E1F26;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            width: 280px;
+            background: #262A30;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .sidebar-item {
+            background: #2F3339;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .sidebar-item:hover {
+            background: #3B3F45;
+        }
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+            background: #2F3339;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        .submenu.open {
+            max-height: 200px;
+            opacity: 1;
+            padding: 10px;
+        }
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+        .video-card {
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        .video-title {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .video-info {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        .download-button {
+            background: #3578e5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            float: left;
+        }
+        .download-button:hover {
+            background: #285fb0;
+        }
+        .container-of-tabs-container{
+            width: 102%;
+            display: flex;
+            justify-content: center;
+            background: #F5F7F8;
+        }
+
+        /* بخش تب‌ها (باکس پایین) */
+        .tabs-container {
+            background: #181A1F;
+            padding: 30px;
+            width: 80%;
+            max-width: 900px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 8px;
+        }
+        .tabs button {
+            background: none;
+            border: none;
+            color: #bbb;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding-bottom: 5px;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .tabs button:hover,
+        .tabs button.active {
+            color: #fff;
+        }
+        .tabs button.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            bottom: -8px;
+            left: 0;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            margin-top: 15px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .content {
+                padding: 20px;
+            }
+            .tabs-container {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- بخش بالایی: سایدبار و محتوای ویدیو -->
+<div class="container-of-container">
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item" onclick="toggleSubmenu(this)">
+                فصل اول آشنایی
+                <span>▼</span>
+            </div>
+            <div class="submenu">
+                <div>مقدمه</div>
+                <div>معرفی زبان‌ها</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="video-card"></div>
+            <div class="video-title">فرانت چیه و باید داخل فرانت چیکار کرد</div>
+            <div class="video-info">
+                <span>100+ لایک</span>
+                <span>125 بازدید</span>
+            </div>
+            <button class="download-button">لینک دانلود</button>
+        </div>
+    </div>
+</div>
+<!-- بخش پایین: تب‌های توضیح و نظرات -->
+<div class="container-of-tabs-container">
+    <div class="tabs-container">
+        <div class="tabs">
+            <!-- تغییر آی‌دی دکمه به گونه‌ای که با آی‌دی محتوای تب همخوانی داشته باشد -->
+            <button id="tab-explanation" class="active">توضیح</button>
+            <button id="tab-comments">نظرات</button>
+        </div>
+        <div id="explanation" class="tab-content active">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error et iure libero minima natus reiciendis, rem suscipit unde ut!
+        </div>
+        <div id="comments" class="tab-content">
+            نظرات کاربران
+        </div>
+    </div>
+</div>
+
+<script>
+    // تابع تغییر حالت باز/بسته شدن زیرمنو
+    function toggleSubmenu(element) {
+        const submenu = element.nextElementSibling;
+        submenu.classList.toggle('open');
+    }
+
+    // تغییر تب‌ها
+    document.querySelectorAll('.tabs button').forEach(button => {
+        button.addEventListener('click', function () {
+            document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            this.classList.add('active');
+            // حذف "tab-" از آی‌دی دکمه و فعال کردن تب مربوطه
+            const contentId = this.id.replace('tab-', '');
+            document.getElementById(contentId).classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>

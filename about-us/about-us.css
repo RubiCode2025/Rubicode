@@ -1,0 +1,466 @@
+/* -------------------- استایل‌های کلی -------------------- */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: #F5F7F8;
+}
+/* -------------------- هدر (ویرایش‌شده) -------------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    background: #0d0f17;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo-img {
+    width: 81px;
+    height: auto;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+nav ul li {
+    margin: 0 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+    transition: color 0.3s;
+    color: white;
+}
+nav ul li a:hover {
+    color: #007BFF;
+}
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s;
+    font-family: 'Vazirmatn', sans-serif;
+}
+.login {
+    background: #ddd;
+}
+.signup {
+    background: #007BFF;
+    color: white;
+}
+.signup:hover {
+    background: #0056b3;
+}
+/* دکمه همبرگری */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.hamburger:focus {
+    outline: none;
+}
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+/* تغییر انیمیشنی به ضربدر */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+/* -------------------- استایل‌های ریسپانسیو هدر -------------------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    nav,
+    .buttons {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav.active,
+    .buttons.active {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/* -------------------- سایر بخش‌های صفحه -------------------- */
+
+/* بخش درباره */
+.about-section {
+    background-color: #0d0f17;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+.about-container {
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    gap: 200px;
+}
+.about-text {
+    max-width: 550px;
+    text-align: right;
+}
+.about-text h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #F5F7F8;
+}
+.about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #d1d1d1;
+}
+.about-image {
+    width: 350px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .about-image {
+        width: 90%;
+        height: 250px;
+    }
+    .about-text {
+        max-width: 100%;
+    }
+}
+
+/* بخش داستان */
+.story-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #F5F7F8;
+    color: #000;
+}
+.story-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: right;
+    gap: 50px;
+}
+.story-text {
+    max-width: 500px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.story-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+.story-image {
+    width: 300px;
+    height: auto;
+    transform: rotate(-10deg);
+    transition: transform 0.3s ease;
+}
+.story-image img {
+    width: 100%;
+    display: block;
+}
+.story-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 50px auto 0;
+    gap: 100px;
+}
+.story-bottom-text,
+.story-bottom-text1 {
+    max-width: 500px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.story-bottom-text {
+    text-align: left;
+    margin-right: 53px;
+}
+.story-bottom-text1 {
+    text-align: right;
+    margin-left: 53px;
+}
+@media (max-width: 768px) {
+    .story-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .story-image {
+        width: 80%;
+        transform: rotate(0deg);
+    }
+    .story-text {
+        max-width: 100%;
+    }
+    .story-bottom-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 30px auto 0;
+    }
+    .story-bottom-text,
+    .story-bottom-text1 {
+        max-width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+/* بخش تیم */
+.team-section {
+    padding: 60px 20px;
+    background: #F5F7F8;
+    text-align: center;
+    color: #333;
+}
+.team-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.team-card {
+    background: #141929;
+    color: #fff;
+    width: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.team-card-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.team-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.team-card p {
+    font-size: 14px;
+    color: #bdbdbd;
+    margin-bottom: 20px;
+}
+.team-card button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 14px;
+}
+.team-card button:hover {
+    background-color: #0056b3;
+}
+
+/* بخش اهداف */
+.goals-section {
+    padding: 60px 20px;
+    background-color: #F5F7F8;
+    color: #000;
+    text-align: center;
+}
+.goals-container {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 50px;
+}
+.goal-text {
+    max-width: 400px;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: right;
+}
+@media (max-width: 768px) {
+    .goals-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .goal-text {
+        max-width: 100%;
+    }
+}
+
+/* بخش خدمات */
+.services-section {
+    padding: 60px 20px;
+    background-color: #F5F7F8;
+    color: #000;
+    text-align: center;
+}
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.service-box {
+    background-color: #0d0f17;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+}
+.service-box i {
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.service-box h3 {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+.service-box p {
+    font-size: 12px;
+    color: #d1d1d1;
+}
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-box {
+        width: 90%;
+    }
+}
+
+/* فوتر */
+.footer-section {
+    width: 80%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #141929;
+    border-radius: 16px;
+    padding: 40px 20px;
+    color: #fff;
+    direction: rtl;
+    font-family: sans-serif;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.footer-col {
+    flex: 1 1 150px;
+    min-width: 130px;
+}
+.about-col {
+    flex: 2 1 200px;
+}
+.footer-col h2,
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.about-col p {
+    line-height: 1.7;
+    color: #ccc;
+}
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.footer-col ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.2s;
+}
+.footer-col ul li a:hover {
+    color: #fff;
+}
+.social-col ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+.social-col img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    display: inline-block;
+}

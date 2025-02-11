@@ -1,0 +1,381 @@
+/* تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+    background: #F5F7F8;
+    color: #333;
+    text-align: right;
+    direction: rtl; /* برای نمایش راست‌به‌چپ */
+}
+
+/* -------------------- هدر با منوی همبرگری -------------------- */
+header.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    background: #F5F7F8;
+    position: relative;
+    z-index: 1000; /* برای اطمینان از نمایش درست منو */
+    flex-wrap: wrap;
+}
+.li{
+    background: #F5F7F8;
+}
+.ul{
+    background: #F5F7F8;
+
+}
+
+/* لوگو */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 28px;
+    font-weight: bold;
+    color: #007BFF;
+}
+.logo-img {
+    width: 81px;
+    height: auto;
+}
+
+/* منوی ناوبری (پیش‌فرض در دسکتاپ به صورت افقی) */
+nav ul.nav-list {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+}
+nav ul.nav-list li {
+    margin: 0 20px;
+}
+nav ul.nav-list li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bolder;
+    transition: color 0.3s;
+}
+nav ul.nav-list li a:hover {
+    color: #007BFF;
+}
+
+/* دکمه‌های ورود و ثبت نام */
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+.login {
+    background: #fff;
+}
+.signup {
+    background: #007BFF;
+    color: white;
+}
+.signup:hover {
+    background: #0056b3;
+}
+
+/* ==================== دکمه همبرگری ===================== */
+.hamburger {
+    display: none; /* در دسکتاپ مخفی */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* بالاتر از منو */
+}
+.hamburger:focus {
+    outline: none;
+}
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* افکت تغییر به ضربدر در حالت .active */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* -------------------- تب‌ها -------------------- */
+header.topic-header {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.topic-btn {
+    border: none;
+    background-color: #eeeeee;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+}
+.topic-btn.active,
+.topic-btn:hover {
+    background-color: #0199fe;
+    color: #fff;
+}
+
+/* کانتینر اصلی باکس‌ها */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* گرید برای باکس‌ها */
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.box {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    height: 240px; /* ارتفاع کمی بیشتر تا جای عکس باشد */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* متن روی تصویر */
+.box span {
+    position: absolute;
+    bottom: 60px;
+    color: #fff;
+    background: rgba(0,0,0,0.4);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+
+/* مخفی کردن سکشن‌هایی که فعال نیستند */
+.topic-content {
+    display: none;
+}
+.topic-content.active {
+    display: block;
+}
+
+/* -------------------- فوتر -------------------- */
+.footer-section {
+    width: 80%;               /* عرض دلخواه */
+    max-width: 1200px;        /* بیشترین عرض */
+    margin: 40px auto;        /* وسط‌چین و فاصله از بالا */
+    background: #141929;      /* پس‌زمینه تیره */
+    border-radius: 16px;      /* گوشه‌های گرد */
+    padding: 40px 20px;       /* فاصله داخلی */
+    color: #fff;              /* رنگ متن سفید */
+    direction: rtl;           /* راست‌چین */
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+/* کانتینر اصلی ستون‌ها */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* ستون‌ها در عرض پخش شوند */
+    flex-wrap: wrap;               /* در صفحه‌های کوچک به خط بعد بروند */
+    gap: 40px;                     /* فاصله بین ستون‌ها */
+}
+
+/* هر ستون */
+.footer-col {
+    flex: 1 1 150px;  /* حداقل عرض 150 پیکسل؛ بقیه خودکار */
+    min-width: 130px; /* برای جلوگیری از خیلی باریک شدن در موبایل */
+}
+
+/* ستون «روبیکد» را کمی پهن‌تر کنیم در صورت نیاز */
+.about-col {
+    flex: 2 1 200px;
+}
+
+/* عنوان ستون‌ها */
+.footer-col h2,
+.footer-col h3 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* پاراگراف معرفی */
+.about-col p {
+    line-height: 1.7;
+    color: #ccc; /* خاکستری روشن */
+}
+
+/* لیست لینک‌ها */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* لینک‌های درون لیست */
+.footer-col ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* ستون شبکه‌های اجتماعی (آیکن و متن در یک خط) */
+.social-col ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.social-col img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    display: inline-block;
+}
+
+/* ------------- شروع مدیا کوئری ها برای واکنشگرا کردن ------------- */
+@media (max-width: 992px) {
+    header.top-header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+    /* منوی بالای هدر کمی جمع‌تر شود */
+    .nav-list li {
+        margin: 10px;
+    }
+    .boxes {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    /* هدر بالا در موبایل */
+    header.top-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* نمایش دکمه همبرگری در موبایل */
+    .hamburger {
+        display: flex;
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        position: relative;
+        margin-right: 10px; /* کمی فاصله از لوگو */
+    }
+
+    /* منو ناوبری مخفی شده */
+    nav ul.nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #F5F7F8;
+        /* حذف موقعیت‌یابی مطلق */
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* نمایش منو وقتی کلاس active روی nav اضافه شود */
+    nav.active ul.nav-list {
+        display: flex;
+    }
+
+    /* مخفی کردن دکمه‌های ورود و ثبت‌نام در موبایل */
+    .buttons {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* نمایش دکمه‌های ورود و ثبت‌نام وقتی کلاس active اضافه شود */
+    .buttons.active {
+        display: flex;
+        flex-direction: row;
+        gap: 10px; /* فاصله بین دکمه‌ها */
+    }
+
+    /* فاصله بین آیتم‌های منو در موبایل */
+    nav ul.nav-list li {
+        margin: 4px 0;
+    }
+
+    /* تغییر تعداد ستون‌ها در باکس‌ها */
+    .boxes {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    /* در گوشی خیلی کوچک */
+    header.top-header {
+        padding: 10px;
+    }
+    .footer-section {
+        width: 95%;
+        margin: 20px auto;
+    }
+    /* ارتفاع باکس را کمتر کنیم که در موبایل خیلی بزرگ نشود */
+    .box {
+        height: 180px;
+    }
+}

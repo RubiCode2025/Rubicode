@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسلایدر چند باکسی (۳ باکس در هر نما)</title>
+    <style>
+        /* تنظیمات پایه */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            direction: rtl;
+        }
+        /* کانتینر اصلی اسلایدر */
+        .slider-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            padding: 30px 0;
+        }
+        /* مسیر اسلایدها؛ تغییر جهت به ltr برای جلوگیری از وارونه شدن ترتیب */
+        .slider-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease-in-out;
+            direction: ltr;
+        }
+        /* تنظیم هر اسلاید (به گونه‌ای که در هر نما ۳ باکس نمایش داده شود) */
+        .slide {
+            flex: 0 0 calc((100% - 40px) / 3); /* ۳ اسلاید + دو فاصله ۲۰ پیکسلی */
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .slide img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            height: 220px;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        /* دکمه‌های ناوبری */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            z-index: 2;
+            transition: background 0.3s;
+        }
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .next-btn {
+            right: 10px;
+        }
+        .prev-btn {
+            left: 10px;
+        }
+        /* نقاط ناوبری */
+        .dots-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dot.active {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <!-- دکمه قبلی -->
+    <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+
+    <!-- مسیر اسلایدها -->
+    <div class="slider-track" id="sliderTrack">
+        <!-- اسلایدهای اصلی (در این مثال ۶ اسلاید داریم) -->
+        <div class="slide">
+            <img src="https://via.placeholder.com/600x400/1E90FF/ffffff?text=اسلاید+1" alt="Slide 1">
+            <div class="slide-caption">اسلاید 1</div>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/600x400/FF4500/ffffff?text=اسلاید+2" alt="Slide 2">
+            <div class="slide-caption">اسلاید 2</div>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/600x400/4B0082/ffffff?text=اسلاید+3" alt="Slide 3">
+            <div class="slide-caption">اسلاید 3</div>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/600x400/228B22/ffffff?text=اسلاید+4" alt="Slide 4">
+            <div class="slide-caption">اسلاید 4</div>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/600x400/DAA520/ffffff?text=اسلاید+5" alt="Slide 5">
+            <div class="slide-caption">اسلاید 5</div>
+        </div>
+        <div class="slide">
+            <img src="https://via.placeholder.com/600x400/8A2BE2/ffffff?text=اسلاید+6" alt="Slide 6">
+            <div class="slide-caption">اسلاید 6</div>
+        </div>
+    </div>
+
+    <!-- دکمه بعدی -->
+    <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+</div>
+
+<!-- نقاط ناوبری (به تعداد اسلایدهای اصلی، یعنی ۶ نقطه) -->
+<div class="dots-container">
+    <span class="dot" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <span class="dot" data-index="3"></span>
+    <span class="dot" data-index="4"></span>
+    <span class="dot" data-index="5"></span>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('sliderTrack');
+        // آرایه اسلایدهای اصلی (بدون کلون)
+        const originalSlides = Array.from(track.querySelectorAll('.slide'));
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.dot');
+        const visibleCount = 3; // تعداد اسلایدهای قابل مشاهده
+
+        // کلون کردن آخرین visibleCount اسلاید و اضافه کردن به ابتدای مسیر
+        const clonesBefore = originalSlides.slice(-visibleCount).map(slide => {
+            const clone = slide.cloneNode(true);
+            clone.classList.add('clone');
+            return clone;
+        });
+        clonesBefore.forEach(clone => {
+            track.insertBefore(clone, track.firstChild);
+        });
+
+        // کلون کردن اولین visibleCount اسلاید و اضافه کردن به انتهای مسیر
+        const clonesAfter = originalSlides.slice(0, visibleCount).map(slide => {
+            const clone = slide.cloneNode(true);
+            clone.classList.add('clone');
+            return clone;
+        });
+        clonesAfter.forEach(clone => {
+            track.appendChild(clone);
+        });
+
+        // به‌روز رسانی آرایه اسلایدها شامل کلون‌ها
+        let slides = Array.from(track.querySelectorAll('.slide'));
+
+        // تنظیم شاخص اولیه: اولین اسلاید اصلی در اندیس visibleCount قرار می‌گیرد
+        let currentIndex = visibleCount;
+
+        function updateSlider(transition = true) {
+            // محاسبه عرض هر اسلاید به همراه فاصله gap (۲۰px)
+            const slideWidth = slides[0].offsetWidth + 20;
+            if (!transition) {
+                track.style.transition = 'none';
+            } else {
+                track.style.transition = 'transform 0.5s ease-in-out';
+            }
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+            // به‌روز رسانی نقاط: اندیس نقطه فعال برابر است با (currentIndex - visibleCount)
+            let dotIndex = currentIndex - visibleCount;
+            if (dotIndex >= originalSlides.length) dotIndex = 0;
+            if (dotIndex < 0) dotIndex = originalSlides.length - 1;
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[dotIndex]) {
+                dots[dotIndex].classList.add('active');
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex++;
+            updateSlider();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex--;
+            updateSlider();
+        });
+
+        track.addEventListener('transitionend', () => {
+            // اگر به کلون‌های انتهایی (بعد از اسلایدهای اصلی) رسیدیم
+            if (currentIndex >= visibleCount + originalSlides.length) {
+                currentIndex = visibleCount;
+                updateSlider(false);
+            }
+            // اگر به کلون‌های ابتدای مسیر رسیدیم
+            if (currentIndex < visibleCount) {
+                currentIndex = currentIndex + originalSlides.length;
+                updateSlider(false);
+            }
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = visibleCount + index;
+                updateSlider();
+            });
+        });
+
+        // تنظیم موقعیت اولیه بدون انیمیشن
+        updateSlider(false);
+    });
+</script>
+
+</body>
+</html>

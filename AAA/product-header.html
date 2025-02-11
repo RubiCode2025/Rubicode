@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روبیکد - تیم برای آینده (با منوی همبرگری)</title>
+
+    <!-- فراخوانی فونت فارسی -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /***************************************************************
+        *                 استایل‌های پایه و کلی
+        ***************************************************************/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        body {
+            background: #F5F7F8;
+            color: #333;
+            text-align: right;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /***************************************************************
+         *                          هدر (Header)
+         ***************************************************************/
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 80px;
+        }
+        /* لوگو */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo-img {
+            width: 81px;
+            height: auto;
+        }
+
+        /* منوی ناوبری (پیش‌فرض در دسکتاپ به صورت افقی) */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin-top: 32px;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bolder;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        /* دکمه‌های ورود و ثبت نام */
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .login {
+            background: #ddd;
+            font-size: 16px;
+        }
+        .signup {
+            background: #007BFF;
+            color: white;
+        }
+        .signup:hover {
+            background: #0056b3;
+        }
+
+        /* ==================== دکمه همبرگری ===================== */
+        .hamburger {
+            display: none; /* در دسکتاپ مخفی */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-right: 360px;
+            margin-top: -55px;
+        }
+        .hamburger:focus {
+            outline: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* افکت تغییر به ضربدر در حالت .active */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /***************************************************************
+         *                 سکشن اول (عنوان و متن معرفی)
+         ***************************************************************/
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 50px 100px;
+        }
+        .content-text {
+            max-width: 50%;
+        }
+        .class {
+            font-size: xxx-large;
+        }
+        .header-img {
+            width: 450px;
+            height: 313px;
+            box-shadow: -20px 20px 21px rgba(0, 0, 0, 1);
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /***************************************************************
+         *       سکشن "کارهای ما" (دوتا باکس با امکان reverse)
+         ***************************************************************/
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .service-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            gap: 5vw;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .service-box.reverse {
+            flex-direction: row-reverse;
+        }
+        .img-box {
+            width: 300px;
+            height: 300px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+        }
+        .text-box {
+            flex: 1;
+        }
+        .text-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .text-box p {
+            color: #666;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /***************************************************************
+         *     محصولات (تب‌ها) + اسلایدر تب‌دار
+         ***************************************************************/
+        .products-title {
+            font-weight: bolder;
+            font-size: x-large;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .my-tabs {
+            display: flex;
+            gap: 10px;
+            margin: 0 auto 20px auto;
+            justify-content: center;
+        }
+        .my-tab-btn {
+            border: none;
+            padding: 10px 20px;
+            font-weight: bolder;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .my-tab-btn.active {
+            border-bottom: 2px solid black;
+        }
+        .my-slider-container {
+            height: 300px;
+            margin: 0 auto 60px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .my-slider {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #mySlider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 400px;
+            overflow: hidden;
+        }
+        .my-slide {
+            position: absolute;
+            transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1),
+            opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+            opacity: 0;
+            height: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .my-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* وسط */
+        .my-slide.center {
+            opacity: 1;
+            transform: translateX(0) scale(1.2);
+            z-index: 3;
+        }
+        /* راست نزدیک به مرکز */
+        .my-slide.right {
+            opacity: 0.9;
+            transform: translateX(180px) scale(0.9);
+            z-index: 2;
+        }
+        /* چپ نزدیک به مرکز */
+        .my-slide.left {
+            opacity: 0.9;
+            transform: translateX(-180px) scale(0.9);
+            z-index: 2;
+        }
+
+        /***************************************************************
+         *                تیم ما (کارت‌ها)
+         ***************************************************************/
+        .team-section {
+            padding: 60px 20px;
+            background: #F5F7F8;
+            text-align: center;
+        }
+
+        .team-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .team-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .team-card {
+            background: #141929;
+            color: #ffffff;
+            width: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .team-card-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .team-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .team-card p {
+            font-size: 14px;
+            color: #bdbdbd;
+            margin-bottom: 20px;
+        }
+        .team-card button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+        .team-card button:hover {
+            background-color: #0056b3;
+        }
+
+        /***************************************************************
+         *        اسلایدر وبلاگ (blog-section)
+         ***************************************************************/
+        .blog-section {
+            width: 40%;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+            margin: 0 auto 60px;
+        }
+        .blog-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-right: 40px;
+            color: #333;
+        }
+        .blog-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .blog-slider .blog-slide {
+            position: relative;
+            min-width: 100%;
+            display: none;
+            transition: all 0.8s ease-in-out;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .blog-slider .blog-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #e5e5e5;
+            width: 40px;
+            height: 40px;
+            line-height: 42px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 5;
+            transition: background 0.3s;
+        }
+        .arrow:hover {
+            background: #ccc;
+        }
+        .left-arrow {
+            left: -50px;
+        }
+        .right-arrow {
+            right: -50px;
+        }
+
+        /***************************************************************
+         *                   فوتر (Footer)
+         ***************************************************************/
+        .footer-section {
+            width: 80%;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #141929;
+            border-radius: 16px;
+            padding: 40px 20px;
+            color: #fff;
+            direction: rtl;
+            font-family: sans-serif;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .footer-col {
+            flex: 1 1 150px;
+            min-width: 130px;
+        }
+        .about-col {
+            flex: 2 1 200px;
+        }
+        .footer-col h2,
+        .footer-col h3 {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .about-col p {
+            line-height: 1.7;
+            color: #ccc;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .footer-col ul li a {
+            text-decoration: none;
+            color: #ccc;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .social-col ul li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .social-col img {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+            display: inline-block;
+        }
+
+        /***************************************************************
+         *      ریسپانسیو + نمایش منوی همبرگری در موبایل
+         ***************************************************************/
+        @media (max-width: 768px) {
+            /* هدر به شکل ستونی */
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+
+            /* نمایش دکمه همبرگری در موبایل */
+            .hamburger {
+                display: flex;
+            }
+
+            /* منو و دکمه‌ها به طور پیشفرض مخفی شوند در موبایل */
+            nav,
+            .buttons {
+                display: none;
+                width: 100%;
+                margin-top: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            /* وقتی کلاس active اضافه شود، نمایش داده شوند */
+            nav.active,
+            .buttons.active {
+                display: flex;
+                flex-direction: row;
+            }
+
+            /* بقیه استایل‌ها در موبایل */
+            .content-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .content-text {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            .header-img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+            .service-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .service-box.reverse {
+                flex-direction: column;
+            }
+            .img-box {
+                width: 100%;
+                max-width: 400px;
+                height: 250px;
+                margin: 0 auto 20px;
+            }
+            .blog-section {
+                width: 80%;
+                margin-top: 40px;
+            }
+            .blog-slider .arrow {
+                top: auto;
+                bottom: -40px;
+                transform: none;
+            }
+            .left-arrow {
+                left: 20%;
+            }
+            .right-arrow {
+                right: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== هدر ========== -->
+<header>
+    <div class="logo">
+        <img src="IMG/Asset%201@2x.png" alt="لوگو" class="logo-img">
+        <!-- در صورت تمایل، نام برند را اینجا درج کنید -->
+    </div>
+
+    <!-- منوی همبرگری -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- منوی ناوبری -->
+    <nav id="navMenu">
+        <ul>
+            <li><a href="#">خانه</a></li>
+            <li><a href="./product/index.html">محصولات</a></li>
+            <li><a href="Team/index.html">تیم</a></li>
+            <li><a href="about-us/index.html">درباره ما</a></li>
+            <li><a href="Weblog/index.html">وبلاگ</a></li>
+            <li><a href="courses/index.html">دوره ها</a></li>
+            <li><a href="contact-with-us/index.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+
+    <!-- دکمه‌های ورود/ثبت نام -->
+    <div class="buttons" id="menuButtons">
+        <a href="login-and-register/register/register.html">
+            <button class="login">ورود</button>
+        </a>
+        <a href="login-and-register/login/index.html">
+            <button class="signup">ثبت نام</button>
+        </a>
+    </div>
+</header>
+
+<!-- سکشن اول (معرفی) -->
+<section class="content-section">
+    <div class="content-text">
+        <h1 class="class">روبیکد تیمی برای آینده</h1>
+        <p>
+            تیم روبیکد یک تیم برای ایجاد محصولات و کالاهای هوشمندانه و اجرای ایده‌هایی برای ایجاد راحتی و سرعت.
+        </p>
+    </div>
+    <img src="IMG/download.jpeg" alt="تیم روبیکد" class="header-img">
+</section>
+
+<!-- سکشن "کارهای ما" -->
+<div class="container">
+    <!-- سکشن ۱ -->
+    <div class="service-box">
+        <div class="img-box"></div>
+        <div class="text-box">
+            <h2>کار های ما</h2>
+            <p>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
+                طراحان گرافیک است. بگیرد و متن را لورم ایپسوم.
+                متأسفانه ممکن است شرایط فعلی تکنولوژی مورد نیاز را تامین نکند.
+                <br><br>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
+                طراحان گرافیک است. بگیرد و متن را لورم ایپسوم.
+            </p>
+        </div>
+    </div>
+
+    <!-- سکشن ۲ (reverse) -->
+    <div class="service-box reverse">
+        <div class="img-box"></div>
+        <div class="text-box">
+            <h2>کار های ما</h2>
+            <p>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
+                طراحان گرافیک است. بگیرد و متن را لورم ایپسوم.
+                <br><br>
+                متأسفانه ممکن است شرایط فعلی تکنولوژی مورد نیاز را تامین نکند.
+                لورم ایپسوم متن ساختگی.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- محصولات (تب‌ها) -->
+<p class="products-title">محصولات</p>
+<div class="my-tabs">
+    <div class="my-tab-btn active" data-category="cat1">افزونه</div>
+    <div class="my-tab-btn" data-category="cat2">سایت</div>
+    <div class="my-tab-btn" data-category="cat3">اپلیکیشن</div>
+</div>
+<div class="my-slider-container">
+    <div class="my-slider" id="mySlider">
+        <!-- اسلایدها توسط JS تزریق می‌شوند -->
+    </div>
+</div>
+
+<!-- تیم ما -->
+<section class="team-section">
+    <h2 class="team-title">تیم ما</h2>
+    <div class="team-cards">
+        <!-- کارت اول -->
+        <div class="team-card">
+            <div class="team-card-img">
+                <img src="IMG/1736789357249.jpeg" alt="مانی اکبری">
+            </div>
+            <h3>مانی اکبری</h3>
+            <p>Back-End Designer</p>
+            <button>نمایش رزومه</button>
+        </div>
+        <!-- کارت دوم -->
+        <div class="team-card">
+            <div class="team-card-img">
+                <img src="IMG/1736789357249.jpeg" alt="sid">
+            </div>
+            <h3>sid</h3>
+            <p>Ui-UX-Designer</p>
+            <button>نمایش رزومه</button>
+        </div>
+        <!-- کارت سوم -->
+        <div class="team-card">
+            <div class="team-card-img">
+                <img src="IMG/1736789357249.jpeg" alt="امیر محمد اکبری افلاکی">
+            </div>
+            <h3>امیر محمد اکبری افلاکی</h3>
+            <p>Front-End-Developer</p>
+            <button>نمایش رزومه</button>
+        </div>
+    </div>
+</section>
+
+<!-- اسلایدر وبلاگ -->
+<section class="blog-section">
+    <h2 class="blog-title">وبلاگ</h2>
+    <div class="blog-slider" id="blogSlider">
+        <!-- دکمه قبل -->
+        <div class="arrow left-arrow" id="prevBtn">&#10094;</div>
+
+        <!-- اسلاید ۱ -->
+        <div class="blog-slide">
+            <img src="IMG/teamwork.jpeg" alt="هوش مصنوعی چطور کار میکنه">
+            <div class="overlay">
+                <span>هوش مصنوعی چطور کار میکنه</span>
+            </div>
+        </div>
+
+        <!-- اسلاید ۲ -->
+        <div class="blog-slide">
+            <img src="IMG/images.jpeg" alt="بهترین هوش مصنوعی دنیا">
+            <div class="overlay">
+                <span>بهترین هوش مصنوعی دنیا</span>
+            </div>
+        </div>
+
+        <!-- اسلاید ۳ -->
+        <div class="blog-slide">
+            <img src="IMG/download.jpeg" alt="قابلیت های آینده هوش مصنوعی">
+            <div class="overlay">
+                <span>قابلیت های آینده هوش مصنوعی</span>
+            </div>
+            <div class="overlay">
+                <span>قابلیت های آینده هوش مصنوعی</span>
+            </div>
+            <div class="overlay">
+                <span>قابلیت های آینده هوش مصنوعی</span>
+            </div>
+        </div>
+
+        <!-- دکمه بعد -->
+        <div class="arrow right-arrow" id="nextBtn">&#10095;</div>
+    </div>
+</section>
+
+<!-- فوتر -->
+<footer class="footer-section">
+    <div class="footer-container">
+        <!-- ستون ۱ (درباره روبیکد) -->
+        <div class="footer-col about-col">
+            <h2>روبیکد</h2>
+            <p>
+                تیم روبیکد متخصص در ساخت وب
+                <br>
+                سایت و اپلیکیشن و ابزار های هوش مصنوعی
+            </p>
+        </div>
+        <!-- ستون ۲: لینک های مفید -->
+        <div class="footer-col">
+            <h3>لینک های مفید</h3>
+            <ul>
+                <li><a href="product/index.html">محصولات</a></li>
+                <li><a href="Team/index.html">تیم</a></li>
+                <li><a href="about-us/index.html">درباره ما</a></li>
+            </ul>
+        </div>
+        <!-- ستون ۳: لینک های سریع -->
+        <div class="footer-col">
+            <h3>لینک های سریع</h3>
+            <ul>
+                <li><a href="#mySlider">سایت ها</a></li>
+                <li><a href="#mySlider">افزونه</a></li>
+                <li><a href="#mySlider">اپلیکیشن</a></li>
+                <li><a href="Weblog/index.html">وبلاگ</a></li>
+            </ul>
+        </div>
+        <!-- ستون ۴: شبکه های اجتماعی -->
+        <div class="footer-col social-col">
+            <h3>شبکه‌های اجتماعی</h3>
+            <ul>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                    <a href="https://www.instagram.com/robi.code/" target="_blank">Instagram</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="X Logo">
+                    <a href="https://x.com/amirakbari99811" target="_blank">Twitter</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                    <a href="https://www.linkedin.com/in/amir-mohammad-akbari-1891672b7/" target="_blank">LinkedIn</a>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                    <a href="https://www.youtube.com/@amirmohammadakbari-AI" target="_blank">YouTube</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+
+    /***************************************************************
+     *    اسکریپت همبرگری: باز/بسته کردن منو در موبایل
+     ***************************************************************/
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navMenu = document.getElementById("navMenu");
+    const menuButtons = document.getElementById("menuButtons");
+
+    function toggleMenu() {
+        // دکمه همبرگری انیمیشن تبدیل به ضربدر
+        hamburgerBtn.classList.toggle("active");
+        // نمایش یا مخفی کردن nav و buttons
+        navMenu.classList.toggle("active");
+        menuButtons.classList.toggle("active");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMenu);
+
+    /***************************************************************
+     *       اسلایدر تب‌دار (محصولات) با سه اسلاید
+     ***************************************************************/
+    const imagesData = {
+        cat1: [
+            "",
+            "",
+            "",
+        ],
+        cat2: [
+            "",
+            "",
+            "",
+        ],
+        cat3: [
+            "",
+            "",
+            "",
+        ]
+    };
+    const mySlider = document.getElementById("mySlider");
+    const tabButtons = document.querySelectorAll(".my-tab-btn");
+
+    let currentCategory = "cat1";
+    let currentIndex = 0;
+    let slideInterval = null;
+
+    function renderSlides() {
+        mySlider.innerHTML = "";
+        const imagesArray = imagesData[currentCategory];
+        const total = imagesArray.length;
+
+        // سه اسلاید: -1 (چپ)، 0 (مرکز)، 1 (راست)
+        for (let i = -1; i <= 1; i++) {
+            const slideIndex = (currentIndex + i + total) % total;
+            const slide = document.createElement("div");
+            slide.classList.add("my-slide");
+
+            if (i === 0) {
+                slide.classList.add("center");
+            } else if (i === 1) {
+                slide.classList.add("right");
+            } else if (i === -1) {
+                slide.classList.add("left");
+            }
+
+            const img = document.createElement("img");
+            img.src = imagesArray[slideIndex];
+            slide.appendChild(img);
+
+            mySlider.appendChild(slide);
+        }
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % imagesData[currentCategory].length;
+        renderSlides();
+    }
+
+    function startAutoSlide() {
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 3000);
+    }
+
+    function changeTab(category) {
+        currentCategory = category;
+        currentIndex = 0;
+        renderSlides();
+        startAutoSlide();
+
+        // فعال/غیرفعال شدن دکمه‌های تب
+        tabButtons.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.category === category);
+        });
+    }
+
+    // راه‌اندازی اولیه
+    changeTab(currentCategory);
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            changeTab(btn.dataset.category);
+        });
+    });
+
+    /***************************************************************
+     *             اسلایدر وبلاگ (blogSlider)
+     ***************************************************************/
+    const blogSlider = document.getElementById('blogSlider');
+    const blogSlides = blogSlider.querySelectorAll('.blog-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let blogIndex = 0;
+
+    function showSlide(index) {
+        if (index < 0) {
+            blogIndex = blogSlides.length - 1;
+        } else if (index >= blogSlides.length) {
+            blogIndex = 0;
+        } else {
+            blogIndex = index;
+        }
+        // مخفی کردن همه اسلایدها
+        blogSlides.forEach((slide) => {
+            slide.style.display = 'none';
+        });
+        // نمایش اسلاید فعلی
+        blogSlides[blogIndex].style.display = 'block';
+    }
+
+    // رویدادهای دکمه قبل و بعد
+    prevBtn.addEventListener('click', () => {
+        showSlide(blogIndex - 1);
+    });
+    nextBtn.addEventListener('click', () => {
+        showSlide(blogIndex + 1);
+    });
+
+    // نمایش اسلاید اول به صورت پیش فرض
+    showSlide(blogIndex);
+
+    // اگر بخواهید حرکت خودکار وبلاگ:
+    // setInterval(() => {
+    //   showSlide(blogIndex + 1);
+    // }, 4000);
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت من</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="user-panel.css">
+</head>
+<body>
+<!-- بخش هدر -->
+<header>
+    <div class="logo">
+        <img src="../IMG/Asset%201@2x.png" alt="لوگو" class="logo-img">
+    </div>
+    <!-- دکمه همبرگری -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <!-- منوی ناوبری -->
+    <nav id="navMenu">
+        <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../product/index.html">محصولات</a></li>
+            <li><a href="../Team/index.html">تیم</a></li>
+            <li><a href="../about-us/index.html">درباره ما</a></li>
+            <li><a href="../Weblog/index.html">وبلاگ</a></li>
+            <li><a href="../courses/index.html">دوره ها</a></li>
+            <li><a href="../contact-with-us/index.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+    <!-- دکمه‌های ورود/ثبت نام -->
+    <div class="buttons" id="menuButtons">
+        <a href="../user-panel/index.html" class="login">
+            <img src="../IMG/icons8-google-48.png" alt="ورود با گوگل">
+        </a>
+    </div>
+</header>
+
+<!-- بخش داشبورد (در یک wrapper جهت جداسازی استایل‌ها) -->
+<div class="dashboard-wrapper">
+    <div class="dashboard">
+        <!-- ستون منوی داشبورد -->
+        <div class="sidebar">
+            <img src="../IMG/Asset%201@2x.png" alt="پروفایل" class="profile-img">
+            <div class="username">امیر محمد اکبری افلاکی</div>
+            <div class="menu-item active" onclick="loadContent('edit-profile', this)">آپدیت اطلاعات حساب</div>
+            <div class="menu-item" onclick="loadContent('my-courses', this)">دوره های من</div>
+            <div class="menu-item" onclick="loadContent('saved-items', this)">ذخیره شده ها</div>
+            <div class="menu-item" onclick="loadContent('notifications', this)">اطلاعیه ها</div>
+        </div>
+        <!-- محتوای داشبورد -->
+        <div class="content" id="content">
+            <h3>لطفاً یکی از گزینه‌های منو را انتخاب کنید</h3>
+        </div>
+    </div>
+</div>
+
+<script src="user-panel.js"></script>
+</body>
+</html>
+
